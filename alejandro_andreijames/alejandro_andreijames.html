@@ -145,36 +145,40 @@
 
         <div id="comments_section">
             <h2>Teammates' Comment/s</h2>
-            <ul>
-                <li><strong><em>Nan: That is some strong goals.
-                    i hope you achive it Good Luck &lt 3</em></strong>
-                </li>
-                <li><strong><em>John Patrick Perez: I wish you
-                    will achieve all your goals in your life.</em></strong>
-                </li>
-                <li><strong><em>Krystel: Power!</em></strong></li>
-                <li><strong><em>Rylle Jalipa: I wish to have
-                    the same mindset and determination as you!!!</em></strong>
-                </li>
-            </ul>
+
+            <div class="teammates-comment">
+            </div>
+
+            <div class="form">
+                <form action="">
+                    <h5>Teammate's Name</h5>
+                    <input type="text"
+                        id = "name"
+                        class="name"
+                        placeholder="Place your name here...">
+
+                    <h5>Teammate's Comment</h5>
+                    <textarea name="comment"
+                        id="comment" 
+                        cols="60"
+                        rows="10"
+                        placeholder="Place your comment here...">
+                    </textarea>
+
+                    <button id="comment_button"
+                        type="button"
+                        class="btn"
+                        onclick="addComment()"
+                        disabled>Comment</button>
+                </form>
+
+                <button id="ascending_button"
+                class="btn">Sort Ascending</button>
+
+                <button id="descending_button"
+                class="btn">Sort Descending</button>
+            </div>
         </div>
-
-        <form>
-        <h4>Name:</h4>
-            <input id="name" type="text" oninput="onTextChange()">
-
-        <h4>Comment:</h4>
-            <textarea name="comment"
-                id="comment"
-                cols="60"
-                rows="5">
-            </textarea>
-            <button id="comment_button"
-                type="button"
-                disabled="true"
-                onclick="addComment()">Comment</button>
-        </form>
-    </div>
 
     <div class="photos">
         <h2>Gallery</h2>
@@ -182,43 +186,31 @@
             <div class="gallery-card">
                 <img class="fit-picture"
                     src="./images/image1.jpg"
-                    height="200px"
-                    width="300px"
                     alt="image 1"/>
             </div>
             <div class="gallery-card">
                 <img class="fit-picture"
                     src="./images/image2.jpg"
-                    height="200px"
-                    width="300px"
                     alt="Image 2"/>
             </div>
             <div class="gallery-card">
                 <img class="fit-picture"
                     src="./images/image3.jpg"
-                    height="200px"
-                    width="300px"
                     alt="Image 3"/>
             </div>
             <div class="gallery-card">
                 <img class="fit-picture"
                     src="./images/image4.jpg"
-                    height="200px"
-                    width="300px"
                     alt="Image 4"/>
             </div>
             <div class="gallery-card">
                 <img class="fit-picture"
                     src="./images/image5.jpg"
-                    height="200px"
-                    width="300px"
                     alt="Image 5"/>
             </div>
             <div class="gallery-card">
                 <img class="fit-picture"
                     src="./images/image6.jpg"
-                    height="200px"
-                    width="300px"
                     alt="Image 6"/>
             </div>
         </div>

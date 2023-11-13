@@ -1,20 +1,22 @@
-let userName = document.getElementById("name");
-let userComment = document.getElementById("comment");
-let commentButton = document.getElementById("comment_button");
-let commentsSection = document.getElementById("comments_section");
+let userName = document.querySelector("#name");
+let userComment = document.querySelector("#comment");
+let commentButton = document.querySelector("#comment_button");
+let commentsSection = document.querySelector("#comments_section");
+let commentsSectionSort = document.querySelector(".teammates-comment");
+let ascendingButton = document.querySelector("#ascending_button");
+let descendingButton = document.querySelector("#descending_button");
+let comments = [];
 
 userName.addEventListener("input", buttonActivate);
 userComment.addEventListener("input", buttonActivate);
+ascendingButton.addEventListener("click", sortAscending);
+descendingButton.addEventListener("click", sortDescending);
 
 function buttonActivate() {
-    let nameContentValue = userName.value;
-    let commentContentValue = userComment.value;
+    let nameContent = userName.value;
+    let commentContent = userComment.value;
 
-    if (nameContentValue !== "" && commentContentValue !== "") {
-        commentButton.removeAttribute("disabled");
-    } else {
-        commentButton.setAttribute("disabled", "true");
-    }
+    commentButton.disabled = !(nameContent.trim() && commentContent.trim());
 }
 
 function addComment() {
@@ -25,11 +27,41 @@ function addComment() {
         return;
     }
 
-    let commentElement = document.createElement('li');
-    commentElement.innerHTML = `<strong><em>${name}: ${comment}</em></strong>`;
-    commentsSection.appendChild(commentElement);
+    let timestamp = new Date().toLocaleString();
+
+    let commentObj = {
+        name: name,
+        comment: comment,
+        timestamp: timestamp,
+    };
+
+    comments.push(commentObj); 
 
     userName.value = '';
     userComment.value = '';
     commentButton.setAttribute('disabled', 'true');
+
+    displayComments();
+}
+
+function displayComments() {
+
+    commentsSectionSort.innerHTML = '';
+
+    for (let comment of comments) {
+        let commentElement = document.createElement('div');
+        commentElement.innerHTML = `<h4>${comment.name} - ${comment.timestamp}
+        </h4><p>${comment.comment}</p>`;
+        commentsSectionSort.appendChild(commentElement);
+    }
+}
+
+function sortAscending() {
+    comments.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+    displayComments();
+}
+
+function sortDescending() {
+    comments.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+    displayComments();
 }
