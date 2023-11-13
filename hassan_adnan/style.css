@@ -1,4 +1,4 @@
-body{
+body {
   font-family: montserrat regular,Calibri,Arial;
   background-color: #F1F1F1;
   margin: 0;
@@ -26,7 +26,12 @@ p {
   border: 5px solid gray;
   margin: 20px 300px;
 }
-  
+
+.scenery-img,
+.me-img {
+  width: 100%;
+}
+
 .card-1 {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
@@ -84,7 +89,7 @@ p {
   clear: both;
 }
 
-.pic{
+.pic {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   border-radius: 5px;
@@ -94,16 +99,19 @@ p {
   margin: 20px 270px;
 }
 
-.gallery{
+.gallery {
   text-align: center; 
 }
 
-.photos{
+.photos {
   display: flex;
   padding: 2rem;
+  height: 200px;
+  width: 300px;
 }
 
-.goals{
+
+.goals {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   border-radius: 5px; 
@@ -113,7 +121,7 @@ p {
   margin: 20px 300px;
 }
 
-.btn{
+.btn {
   display: flex;
   flex-wrap: wrap;
 }
