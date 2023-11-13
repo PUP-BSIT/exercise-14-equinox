@@ -39,7 +39,7 @@ function addComment() {
 
     nameInput.value = '';
     commentInput.value = '';
-    commentButton.disabled = true;
+    commentButton.setAttribute('disabled', 'true');
 
     displayComments();
 }
