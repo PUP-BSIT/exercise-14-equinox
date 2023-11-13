@@ -2,15 +2,15 @@ let userName = document.querySelector("#name");
 let userComment = document.querySelector("#comment");
 let commentButton = document.querySelector("#comment_button");
 let commentsSection = document.querySelector("#comments_section");
-let commentsSectionSort = document.querySelector(".team-comment-sorted");
-let ascendingButton = document.querySelector("#ascending-button");
-let descendingButton = document.querySelector("#descending-button");
+let commentsSectionSort = document.querySelector(".teammates-comment");
+let ascendingButton = document.querySelector("#ascending_button");
+let descendingButton = document.querySelector("#descending_button");
 let comments = [];
 
 userName.addEventListener("input", buttonActivate);
 userComment.addEventListener("input", buttonActivate);
-ascendingButton.addEventListener("click", sortCommentsAscending);
-descendingButton.addEventListener("click", sortCommentsDescending);
+ascendingButton.addEventListener("click", sortAscending);
+descendingButton.addEventListener("click", sortDescending);
 
 function buttonActivate() {
     let nameContent = userName.value;
@@ -56,12 +56,12 @@ function displayComments() {
     }
 }
 
-function sortCommentsAscending() {
+function sortAscending() {
     comments.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
     displayComments();
 }
 
-function sortCommentsDescending() {
+function sortDescending() {
     comments.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
     displayComments();
 }
