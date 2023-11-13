@@ -1,36 +1,66 @@
-let nameInput = document.getElementById("name");
-let commentInput = document.getElementById("comment");
-let commentButton = document.getElementById("comment-button");
-let commentsSection = document.getElementById("comment_form");
+let nameInput = document.querySelector("#name");
+let commentInput = document.querySelector("#comment");
+let commentButton = document.querySelector("#comment_button");
+let commentsSectionSort = document.querySelector("#comments_section_sort");
+let ascendingButton = document.querySelector("#sort_ascending");
+let descendingButton = document.querySelector("#sort_descending");
+let comments = [];
 
 nameInput.addEventListener("input", toggleCommentButton);
 commentInput.addEventListener("input", toggleCommentButton);
 commentButton.addEventListener("click", addComment);
+ascendingButton.addEventListener("click", sortCommentsAscending);
+descendingButton.addEventListener("click", sortCommentsDescending);
 
 function toggleCommentButton() {
     let nameValue = nameInput.value;
     let commentValue = commentInput.value;
 
-    if (nameValue.trim() !== "" && commentValue.trim() !== "") {
-        commentButton.removeAttribute("disabled");
-    } else {
-        commentButton.setAttribute("disabled", "disabled");
-    }
+    commentButton.disabled = !(nameValue.trim() && commentValue.trim());
 }
 
 function addComment() {
     let name = nameInput.value;
     let comment = commentInput.value;
 
-    if (name.trim() === "" || comment.trim() === "") {
+    if (name.trim() === '' || comment.trim() === '') {
         return;
     }
 
-    let commentElement = document.createElement('div');
-    commentElement.innerHTML = `<p>${name}${comment}</p>`;
-    commentsSection.appendChild(commentElement);
+    let timestamp = new Date().toLocaleString();
+
+    let commentObj = {
+        name: name,
+        comment: comment,
+        timestamp: timestamp,
+    };
+
+    comments.push(commentObj);
 
     nameInput.value = '';
     commentInput.value = '';
     commentButton.setAttribute('disabled', 'true');
+
+    displayComments();
+}
+
+function displayComments() {
+    commentsSectionSort.innerHTML = '';
+
+    for (let comment of comments) {
+        let commentElement = document.createElement('div');
+        commentElement.innerHTML = `<p>- ${comment.name}:
+         ${comment.comment}(Date: ${comment.timestamp})</p>`;
+        commentsSectionSort.appendChild(commentElement);
+    }
+}
+
+function sortCommentsAscending() {
+    comments.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+    displayComments();
+}
+
+function sortCommentsDescending() {
+    comments.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+    displayComments();
 }
