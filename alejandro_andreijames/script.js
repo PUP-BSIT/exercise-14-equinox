@@ -26,7 +26,7 @@ function addComment() {
     }
 
     let commentElement = document.createElement('li');
-    commentElement.innerHTML = `<strong><em>${name}${comment}</em></strong>`;
+    commentElement.innerHTML = `<strong><em>${name}: ${comment}</em></strong>`;
     commentsSection.appendChild(commentElement);
 
     userName.value = '';
