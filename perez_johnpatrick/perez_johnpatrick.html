@@ -72,6 +72,7 @@
                 <li>To have a better and happy life. </li>
                 <li>To make it alive for 100+ years.</li>
             </ul>
+            
         <div id="comment_form">
             <p>Krystel: Great!</p>
             <p>Rylle: I believe in you! You can do it!</p>
@@ -82,26 +83,34 @@
         </div>   
 
         <div>
-            <form>
+            <form id="comment_form">
                 <p><label for="name">Name: </label></p>
                 <input type="text" id="name">
-
+            
                 <p><label for="comment">Comment: </label></p>
                 <textarea id="comment"></textarea>
-
-                <button type="button" id="comment-button" 
-                disabled>Comment </button>
+            
+                <button type="button" id="comment_button" disabled 
+                onclick="addComment()">Comment</button>
+            
+                <button type="button" id="sort_ascending" 
+                onclick="sortCommentsAscending()">Sort Ascending</button>
+                <button type="button" id="sort_descending"
+                onclick="sortCommentsDescending()">Sort Descending</button>
             </form>
+            
+            <div id="commentsSectionSort"></div>
+            
         </div>
     </div>
     <div class="gallery">
         <h2>Gallery</h2>
-        <img src="JPS08426.jpg" width="480 px" alt="image">
-        <img src="DSC08882.jpg" width="480 px" alt="image">
-        <img src="cELESTIAL SKIN screengrab.jpg" width="480 px" alt="image">
-        <img src="Alintana screengrab.jpg" width="480 px" alt="image">
-        <img src="ely.jpg" width="480 px" alt="image">
-        <img src="6 GRID.jpg" width="480 px" alt="image">
+        <img src="JPS08426.jpg" alt="image">
+        <img src="DSC08882.jpg" alt="image">
+        <img src="cELESTIAL SKIN screengrab.jpg" alt="image">
+        <img src="Alintana screengrab.jpg" alt="image">
+        <img src="ely.jpg" alt="image">
+        <img src="6 GRID.jpg" alt="image">
     </div>
 
 <script src="script.js"> </script>
