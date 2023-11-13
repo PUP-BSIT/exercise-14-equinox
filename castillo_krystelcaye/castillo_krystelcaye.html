@@ -107,16 +107,24 @@
         </div>
 
         <form id="comment_form">
-            <p label for="name">Name:</label>
+            <p><label for="name">Name:</label>
             <input type="text" id="name" placeholder="Enter your name"></p>
-
-            <p label for="comment">Comment:</label>
-            <textarea id="comment" 
-                placeholder="Enter your comment"></textarea></p>
-
-            <button type="button" id="comment_button" disabled="true" 
-                onclick="addComment(event)">Comment</button>
+        
+            <p><label for="comment">Comment:</label>
+            <textarea id="comment" placeholder="Enter your comment">
+            </textarea></p>
+        
+            <button type="button" id="comment_button" disabled 
+            onclick="addComment()">Comment</button>
+        
+            <div class>
+                <button type="button" id="sort_ascending" 
+                onclick="sortCommentsAscending(event)">Sort Ascending</button>
+                <button type="button" id="sort_descending" 
+                onclick="sortCommentsDescending(event)">Sort Descending</button>
+            </div>
         </form>
+        
     </div>
 
     <div class="gallery">
